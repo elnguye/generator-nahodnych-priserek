@@ -1,0 +1,46 @@
+import random   # knihovna pro generování náhodných hodnot
+import time     # knihovna pro práci s časem (pauzy)
+
+# Seznamy jednotlivých částí příšerky
+# Používáme seznamy (list), protože z nich můžeme snadno vybírat náhodné prvky
+hlavy = ["(°_°)", "(ಠ_ಠ)", "(•‿•)", "(^_^)", "(O_O)"]
+tela = [" /|\\ ", " <|> ", " \\|/ ", " [|] ", " {|} "]
+nohy = [" / \\ ", " /_\\ ", " || ", " ^^ ", " //\\\\ "]
+
+def generuj_priserku():
+    """
+    Funkce vygeneruje jednu náhodnou ASCII příšerku.
+    Používáme funkci, abychom mohli generování opakovat bez duplikace kódu.
+    """
+    
+    # random.choice vybere náhodný prvek ze seznamu
+    hlava = random.choice(hlavy)
+    telo = random.choice(tela)
+    noha = random.choice(nohy)
+    
+    # Vracíme příšerku jako víc řádků (string)
+    return hlava + "\n" + telo + "\n" + noha
+
+
+print("🔮 Vítej v generátoru příšerek!")
+time.sleep(1)  # krátká pauza pro efekt
+
+# Cyklus for použijeme, protože chceme vytvořit více příšerek (přesně 3)
+for i in range(3):
+    print("\nVytvářím příšerku...")
+    
+    # Pauza, aby to působilo „napínavě“
+    time.sleep(2)
+    
+    # Vygenerujeme příšerku pomocí funkce
+    priserka = generuj_priserku()
+    
+    print(priserka)
+    
+    # Podmínka: po poslední příšerce už nedává smysl čekat
+    # proto kontrolujeme, jestli nejsme na poslední iteraci
+    if i < 2:
+        print("\nPřiprav se na další...\n")
+        time.sleep(2)
+
+print("\nHotovo! 👾")
